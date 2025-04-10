@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>香港疫情数据可视化大屏</title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="dashboard-header">
+            <h1 class="dashboard-title"><i class="fas fa-virus"></i>香港新冠疫情可视化监控平台</h1>
+            <div class="update-time">数据更新时间：<span id="update-time">--</span></div>
+        </div>
+        
+        <!-- 数据概览卡片 -->
+        <div class="overview-cards">
+            <div class="card">
+                <div class="card-title"><i class="fas fa-clipboard-list"></i>累计确诊</div>
+                <div class="card-value confirmed-total" id="total-confirmed-value">--</div>
+            </div>
+            <div class="card">
+                <div class="card-title"><i class="fas fa-plus-circle"></i>新增确诊</div>
+                <div class="card-value confirmed-new" id="new-confirmed-value">--</div>
+            </div>
+            <div class="card">
+                <div class="card-title"><i class="fas fa-chart-line"></i>增长率</div>
+                <div class="card-value growth-rate" id="growth-rate-value">--</div>
+            </div>
+            <div class="card">
+                <div class="card-title"><i class="fas fa-heart-pulse"></i>康复率</div>
+                <div class="card-value recovery-rate" id="recovery-rate-value">--</div>
+            </div>
+            <div class="card">
+                <div class="card-title"><i class="fas fa-skull"></i>死亡率</div>
+                <div class="card-value fatality-rate" id="fatality-rate-value">--</div>
+            </div>
+        </div>
+        
+        <!-- 图表容器 -->
+        <div class="charts-container">
+            <!-- 趋势图 -->
+            <div class="chart-card trend-area">
+                <div class="chart-title">香港疫情趋势</div>
+                <div class="chart" id="trend-chart"></div>
+            </div>
+            
+            <!-- 地图 -->
+            <div class="chart-card map-area">
+                <div class="chart-title">香港各区疫情分布地图</div>
+                <div class="chart" id="hk-map-chart"></div>
+            </div>
+            
+            <!-- 地区排名 -->
+            <div class="chart-card">
+                <div class="chart-title">高风险地区排名</div>
+                <div class="chart" id="district-rank-chart"></div>
+            </div>
+            
+            <!-- 地区分布饼图 -->
+            <div class="chart-card">
+                <div class="chart-title">确诊病例区域分布</div>
+                <div class="chart" id="district-pie-chart"></div>
+            </div>
+            
+            <!-- 增长率图 -->
+            <div class="chart-card">
+                <div class="chart-title">近期疫情增长率</div>
+                <div class="chart" id="growth-rate-chart"></div>
+            </div>
+            
+            <!-- 风险等级分布图 -->
+            <div class="chart-card">
+                <div class="chart-title">各区风险等级分布</div>
+                <div class="chart" id="risk-level-chart"></div>
+            </div>
+            
+            <!-- 人口密度与确诊关系 -->
+            <div class="chart-card">
+                <div class="chart-title">人口密度与确诊关系</div>
+                <div class="chart" id="population-density-chart"></div>
+            </div>
+            
+            <!-- 康复死亡率对比图 -->
+            <div class="chart-card recovery-death-area">
+                <div class="chart-title">康复率与死亡率对比</div>
+                <div class="chart" id="recovery-death-chart"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 引入JS -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+</body>
+</html> 

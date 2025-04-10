@@ -1,0 +1,285 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+
+body {
+    background-color: #030c22;
+    color: #fff;
+    font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+/* 页面标题 */
+.dashboard-header {
+    background-color: rgba(0, 20, 60, 0.5);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+}
+
+.dashboard-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.dashboard-title i {
+    margin-right: 10px;
+    color: #ff6b6b;
+}
+
+.update-time {
+    font-size: 0.85rem;
+    color: #a3a3a3;
+}
+
+/* 数据概览卡片 */
+.overview-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 0 15px;
+}
+
+.card {
+    background: linear-gradient(135deg, rgba(13, 71, 161, 0.2), rgba(33, 33, 33, 0.2));
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: calc(20% - 15px);
+    margin-right: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 为数据卡片添加不同的渐变背景 */
+.card:nth-child(1) {
+    background: linear-gradient(135deg, rgba(61, 90, 254, 0.2), rgba(33, 33, 66, 0.4));
+    border-left: 3px solid #ff9a9e;
+}
+
+.card:nth-child(2) {
+    background: linear-gradient(135deg, rgba(255, 154, 158, 0.2), rgba(66, 33, 33, 0.4));
+    border-left: 3px solid #ffd66b;
+}
+
+.card:nth-child(3) {
+    background: linear-gradient(135deg, rgba(255, 214, 107, 0.2), rgba(66, 56, 33, 0.4));
+    border-left: 3px solid #ff6b6b;
+}
+
+.card:nth-child(4) {
+    background: linear-gradient(135deg, rgba(56, 249, 215, 0.2), rgba(33, 66, 63, 0.4));
+    border-left: 3px solid #38f9d7;
+}
+
+.card:nth-child(5) {
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(66, 33, 33, 0.4));
+    border-left: 3px solid #ff6b6b;
+}
+
+.card:last-child {
+    margin-right: 0;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-size: 0.9rem;
+    color: #a3a3a3;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.card-title i {
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+.card-value {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.confirmed-total {
+    color: #ff9a9e;
+}
+
+.confirmed-new {
+    color: #ffd66b;
+}
+
+.growth-rate {
+    color: #ff6b6b;
+}
+
+.recovery-rate {
+    color: #38f9d7;
+}
+
+.fatality-rate {
+    color: #ff6b6b;
+}
+
+/* 图表容器样式 */
+.charts-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 0 15px 15px 15px;
+    box-sizing: border-box;
+}
+
+.chart-card {
+    background: rgba(13, 71, 161, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chart-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.chart-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff;
+    text-align: center;
+}
+
+.chart {
+    flex: 1;
+    width: 100%;
+    min-height: 250px;
+}
+
+/* 使地图区域更大 */
+.map-area {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.map-area .chart {
+    min-height: 450px;
+}
+
+/* 使趋势图和康复死亡对比图宽屏 */
+.trend-area, .recovery-death-area {
+    grid-column: span 3;
+}
+
+/* 响应式布局 */
+@media (max-width: 1200px) {
+    .charts-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .map-area {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+    
+    .trend-area, .recovery-death-area {
+        grid-column: span 2;
+    }
+    
+    .card {
+        min-width: calc(33.33% - 15px);
+        margin-bottom: 15px;
+    }
+    
+    .overview-cards {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .charts-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-area, .trend-area, .recovery-death-area {
+        grid-column: span 1;
+    }
+    
+    .card {
+        min-width: calc(50% - 15px);
+    }
+    
+    .dashboard-title {
+        font-size: 1.4rem;
+    }
+}
+
+/* 调整图表在不同分辨率下的显示 */
+@media (min-width: 1500px) {
+    .chart-card {
+        min-height: 350px;
+    }
+    
+    .map-area .chart {
+        min-height: 550px;
+    }
+    
+    .trend-area .chart, .recovery-death-area .chart {
+        min-height: 300px;
+    }
+}
+
+/* 自定义滚动条样式 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+} 
