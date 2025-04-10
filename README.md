@@ -122,3 +122,5 @@ python app.py
 ## 许可信息
 
 本项目仅供学习和研究使用，数据来源于公开渠道，如有侵权请联系删除。 
+
+![image](https://github.com/user-attachments/assets/3b365f24-54dd-4641-afd0-9eb638c8ad73)
